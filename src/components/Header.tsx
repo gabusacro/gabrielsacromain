@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { ContactTrigger } from "./ContactTrigger";
 
@@ -18,8 +19,15 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-[var(--foreground)]"
+          className="flex items-center gap-2 text-lg font-semibold tracking-tight text-[var(--foreground)]"
         >
+          <Image
+            src="/icon.png"
+            alt=""
+            width={32}
+            height={32}
+            className="h-8 w-8 shrink-0"
+          />
           Gabriel Sacro
         </Link>
 
