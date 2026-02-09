@@ -1,10 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ContactFormModal } from "./ContactFormModal";
+import { CONTACT_MODAL_EVENT } from "./ContactTrigger";
 
 export function CTA() {
   const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setModalOpen(true);
+    window.addEventListener(CONTACT_MODAL_EVENT, handler);
+    return () => window.removeEventListener(CONTACT_MODAL_EVENT, handler);
+  }, []);
 
   return (
     <>

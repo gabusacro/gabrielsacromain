@@ -1,11 +1,29 @@
 import Link from "next/link";
+import { ContactTrigger } from "./ContactTrigger";
 
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 pt-24 pb-20 gradient-mesh overflow-hidden">
+      <div
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.12]"
+        style={{
+          backgroundImage: "url(/photo.png)",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          maskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
+          maskSize: "contain",
+          WebkitMaskSize: "contain",
+          maskPosition: "center",
+          WebkitMaskPosition: "center",
+          maskRepeat: "no-repeat",
+          WebkitMaskRepeat: "no-repeat",
+        }}
+      />
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[var(--accent)]">
-          Do you need Next-generation website?
+          Next generation website
         </p>
         <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl">
           Built to make you{" "}
@@ -21,12 +39,9 @@ export function Hero() {
           >
             View my work →
           </Link>
-          <Link
-            href="#contact"
-            className="inline-flex h-12 items-center justify-center rounded-full border border-[var(--border)] px-6 text-base font-medium text-[var(--foreground)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--card)]"
-          >
+          <ContactTrigger className="inline-flex h-12 items-center justify-center rounded-full border border-[var(--border)] px-6 text-base font-medium text-[var(--foreground)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--card)]">
             Get in touch
-          </Link>
+          </ContactTrigger>
         </div>
       </div>
     </section>

@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { ContactTrigger } from "./ContactTrigger";
 
 const NAV = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
   { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", isContact: true },
 ];
 
 export function Header() {
@@ -24,24 +25,30 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) =>
+            "isContact" in item && item.isContact ? (
+              <ContactTrigger
+                key="contact"
+                className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+              >
+                {item.label}
+              </ContactTrigger>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link
-            href="#contact"
-            className="hidden rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--background)] transition-colors hover:bg-[var(--accent-hover)] md:inline-block"
-          >
+          <ContactTrigger className="hidden rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--background)] transition-colors hover:bg-[var(--accent-hover)] md:inline-block">
             Get in touch
-          </Link>
+          </ContactTrigger>
           <button
             type="button"
             className="flex h-9 w-9 items-center justify-center rounded-md text-[var(--muted)] hover:bg-[var(--border)] hover:text-[var(--foreground)] md:hidden"
@@ -62,23 +69,32 @@ export function Header() {
       {open && (
         <div className="border-t border-[var(--border)] bg-[var(--background)] px-6 py-4 md:hidden">
           <nav className="flex flex-col gap-4">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-[var(--muted)] hover:text-[var(--foreground)]"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="#contact"
+            {NAV.map((item) =>
+              "isContact" in item && item.isContact ? (
+                <ContactTrigger
+                  key="contact"
+                  className="text-left text-[var(--muted)] hover:text-[var(--foreground)]"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </ContactTrigger>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-[var(--muted)] hover:text-[var(--foreground)]"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
+            <ContactTrigger
               className="rounded-full bg-[var(--accent)] px-4 py-2 text-center text-sm font-medium text-[var(--background)]"
               onClick={() => setOpen(false)}
             >
               Get in touch
-            </Link>
+            </ContactTrigger>
           </nav>
         </div>
       )}
