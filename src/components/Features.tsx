@@ -1,20 +1,8 @@
-const FEATURES = [
-  {
-    title: "Full-stack development",
-    description: "From API design to pixel-perfect UIs. Next.js, React, Node, and modern tooling.",
-    icon: "⌘",
-  },
-  {
-    title: "Design systems",
-    description: "Accessible components, design tokens, and consistent UX across products.",
-    iconKey: "design" as const,
-  },
-  {
-    title: "Ship at scale",
-    description: "Performance, security, and maintainability. Built for real users and teams.",
-    iconKey: "ship" as const,
-  },
-];
+"use client";
+
+import { useState } from "react";
+import { FEATURES_WITH_SLIDES } from "@/data/featureSlides";
+import { FeatureModal } from "./FeatureModal";
 
 function DesignSystemsIcon() {
   return (
@@ -41,6 +29,8 @@ function ShipAtScaleIcon() {
 }
 
 export function Features() {
+  const [openFeature, setOpenFeature] = useState<typeof FEATURES_WITH_SLIDES[0] | null>(null);
+
   return (
     <section id="about" className="border-t border-[var(--border)] bg-[var(--background)] py-24 px-6">
       <div className="mx-auto max-w-6xl">
@@ -51,12 +41,14 @@ export function Features() {
           I build systematic products with careful attention to speed and user experience—informed by industry best practices.
         </p>
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map((f) => (
-            <div
+          {FEATURES_WITH_SLIDES.map((f) => (
+            <button
               key={f.title}
-              className="card-glow rounded-2xl border border-[var(--border)] bg-[var(--card)] p-8"
+              type="button"
+              onClick={() => setOpenFeature(f)}
+              className="card-glow text-left rounded-2xl border border-[var(--border)] bg-[var(--card)] p-8 transition-colors hover:border-[var(--accent)]/50"
             >
-              {"icon" in f ? (
+              {"icon" in f && f.icon ? (
                 <span className="text-2xl text-[var(--accent)]">{f.icon}</span>
               ) : f.iconKey === "design" ? (
                 <DesignSystemsIcon />
@@ -67,10 +59,13 @@ export function Features() {
                 {f.title}
               </h3>
               <p className="mt-2 text-[var(--muted)]">{f.description}</p>
-            </div>
+            </button>
           ))}
         </div>
       </div>
+      {openFeature && (
+        <FeatureModal feature={openFeature} onClose={() => setOpenFeature(null)} />
+      )}
     </section>
   );
 }
