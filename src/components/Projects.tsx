@@ -10,7 +10,7 @@ export async function Projects() {
         <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
           Projects & products
         </h2>
-        <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">
+        <p className="mt-4 max-w-2xl text-lg text-[var(--muted)] text-justify">
           Selected work from previous roles and side projects. Built with modern stacks and best practices.
         </p>
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

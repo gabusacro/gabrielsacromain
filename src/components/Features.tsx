@@ -37,7 +37,7 @@ export function Features() {
         <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
           What I do
         </h2>
-        <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">
+        <p className="mt-4 max-w-2xl text-lg text-[var(--muted)] text-justify">
           I build systematic products with careful attention to speed and user experience—informed by industry best practices.
         </p>
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -58,7 +58,7 @@ export function Features() {
               <h3 className="mt-4 text-xl font-semibold text-[var(--foreground)]">
                 {f.title}
               </h3>
-              <p className="mt-2 text-[var(--muted)]">{f.description}</p>
+              <p className="mt-2 text-[var(--muted)] text-justify">{f.description}</p>
             </button>
           ))}
         </div>

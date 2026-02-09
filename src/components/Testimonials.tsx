@@ -32,7 +32,7 @@ export function Testimonials() {
               key={t.author}
               className="rounded-2xl border border-[var(--border)] bg-[var(--background)] p-8"
             >
-              <p className="text-[var(--foreground)]">&ldquo;{t.quote}&rdquo;</p>
+              <p className="text-[var(--foreground)] text-justify">&ldquo;{t.quote}&rdquo;</p>
               <footer className="mt-6">
                 <cite className="not-italic">
                   <span className="block font-semibold text-[var(--foreground)]">

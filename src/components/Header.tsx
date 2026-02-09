@@ -61,7 +61,7 @@ export function Header() {
 
       {open && (
         <div className="border-t border-[var(--border)] bg-[var(--background)] px-6 py-4 md:hidden">
-          <nav className="flex flex-col gap-4">
+          <nav className="flex flex-col items-center gap-4 text-center">
             {NAV_LINKS.map((item) => (
               <Link
                 key={item.href}
@@ -73,13 +73,13 @@ export function Header() {
               </Link>
             ))}
             <ContactTrigger
-              className="text-left text-[var(--muted)] hover:text-[var(--foreground)]"
+              className="text-[var(--muted)] hover:text-[var(--foreground)]"
               onClick={() => setOpen(false)}
             >
               Contact
             </ContactTrigger>
             <ContactTrigger
-              className="rounded-full bg-[var(--accent)] px-4 py-2 text-center text-sm font-medium text-[var(--background)]"
+              className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--background)]"
               onClick={() => setOpen(false)}
             >
               Get in touch

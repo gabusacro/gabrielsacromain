@@ -34,7 +34,7 @@ export function ProjectCardWithModal({ p }: ProjectCardWithModalProps) {
             <h3 className="text-lg font-semibold text-[var(--foreground)]">
               {p.title}
             </h3>
-            <p className="mt-2 text-sm text-[var(--muted)]">{p.description}</p>
+            <p className="mt-2 text-sm text-[var(--muted)] text-justify">{p.description}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {p.tags.slice(0, 4).map((tag) => (
                 <span
