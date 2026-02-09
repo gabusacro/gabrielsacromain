@@ -4,12 +4,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { ContactTrigger } from "./ContactTrigger";
 
-const NAV = [
+const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
   { label: "Projects", href: "#projects" },
-  { label: "Contact", isContact: true },
-];
+] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -25,24 +24,18 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV.map((item) =>
-            "isContact" in item && item.isContact ? (
-              <ContactTrigger
-                key="contact"
-                className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
-              >
-                {item.label}
-              </ContactTrigger>
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
-              >
-                {item.label}
-              </Link>
-            )
-          )}
+          {NAV_LINKS.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <ContactTrigger className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]">
+            Contact
+          </ContactTrigger>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -69,26 +62,22 @@ export function Header() {
       {open && (
         <div className="border-t border-[var(--border)] bg-[var(--background)] px-6 py-4 md:hidden">
           <nav className="flex flex-col gap-4">
-            {NAV.map((item) =>
-              "isContact" in item && item.isContact ? (
-                <ContactTrigger
-                  key="contact"
-                  className="text-left text-[var(--muted)] hover:text-[var(--foreground)]"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </ContactTrigger>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-[var(--muted)] hover:text-[var(--foreground)]"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
+            {NAV_LINKS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-[var(--muted)] hover:text-[var(--foreground)]"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <ContactTrigger
+              className="text-left text-[var(--muted)] hover:text-[var(--foreground)]"
+              onClick={() => setOpen(false)}
+            >
+              Contact
+            </ContactTrigger>
             <ContactTrigger
               className="rounded-full bg-[var(--accent)] px-4 py-2 text-center text-sm font-medium text-[var(--background)]"
               onClick={() => setOpen(false)}
