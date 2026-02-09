@@ -5,7 +5,7 @@ export function Hero() {
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 pt-24 pb-20 gradient-mesh overflow-hidden">
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[var(--accent)]">
-          Next-generation website
+          Do you need Next-generation website?
         </p>
         <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl">
           Built to make you{" "}
