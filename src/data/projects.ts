@@ -113,7 +113,7 @@ export const FALLBACK_PROJECTS: Project[] = [
     id: "travelasiargao",
     slug: "travelasiargao",
     title: "Travela Siargao",
-    description: "Ferry booking and schedules between Siargao, Surigao, and Dinagat. Book online, pay via GCash, get e-tickets with QR code. Your gateway to island time.",
+    description: "A modern ferry booking platform — featuring online reservations, GCash payments, QR-code e-tickets, and real-time schedules. Built to replace manual bookings with a fast, all-in-one digital experience.",
     longDescription: "Travela Siargao booking site. Daily ferries Siargao–Surigao and Dinagat–Surigao. Easy online booking, e-ticket with QR code, senior and PWD discounts. Schedule, attractions, and weather in one place.",
     imageUrl: "/screenshots/travelasiargao/Home.png",
     screenshots: [
