@@ -4,14 +4,14 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-8">
         <div className="flex flex-col items-center gap-4 md:flex-row md:items-center md:justify-between md:gap-6">
           <p className="text-xs text-[var(--muted)] md:text-sm">
-            © 2026 Gabriel Sacro. All rights reserved.
+            © 2020 Gabriel Sacro. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
             <a
               href="https://x.com/gabrielsacro"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+              className="text-[var(--muted)] hover:text-[var(--accent)] hover:scale-110 hover:-translate-y-1 transition-all"
               aria-label="X (Twitter)"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -22,7 +22,7 @@ export function Footer() {
               href="https://www.linkedin.com/in/gabrielsacro/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+              className="text-[var(--muted)] hover:text-[var(--accent)] hover:scale-110 hover:-translate-y-1 transition-all"
               aria-label="LinkedIn"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
