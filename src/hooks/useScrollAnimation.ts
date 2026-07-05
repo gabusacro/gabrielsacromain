@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 export function useScrollAnimation() {
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
