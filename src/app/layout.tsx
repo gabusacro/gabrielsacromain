@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { ContactModalProvider } from "@/components/ContactModalProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,6 +18,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["opsz", "SOFT", "WONK"],
+  style: ["normal", "italic"],
+});
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://gabrielsacromain.vercel.app";
 
 export const metadata: Metadata = {
@@ -24,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Gabriel Sacro",
   },
   description:
-    "Full-stack developer & designer. Ship products that are fast, beautiful, and built with industry best practices. Portfolio, projects, and contact.",
+    "Full-stack developer & designer for founders and small teams. I build web platforms with real functionality — bookings, payments, and dashboards — not just brochure sites. Portfolio, projects, and contact.",
   keywords: ["Gabriel Sacro", "full-stack developer", "web designer", "portfolio", "Next.js", "React", "Siargao", "prop trading"],
   authors: [{ name: "Gabriel Sacro", url: siteUrl }],
   creator: "Gabriel Sacro",
@@ -34,12 +44,12 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Gabriel Sacro Portfolio",
     title: "Gabriel Sacro | Full-stack Developer & Designer",
-    description: "Full-stack developer & designer. Ship products that are fast, beautiful, and built with industry best practices.",
+    description: "Full-stack developer & designer for founders and small teams. I build web platforms with real functionality — bookings, payments, and dashboards — not just brochure sites.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Gabriel Sacro | Full-stack Developer & Designer",
-    description: "Full-stack developer & designer. Ship products that are fast, beautiful, and built with industry best practices.",
+    description: "Full-stack developer & designer for founders and small teams. I build web platforms with real functionality — bookings, payments, and dashboards — not just brochure sites.",
   },
   robots: {
     index: true,
@@ -60,7 +70,7 @@ const jsonLd = {
   name: "Gabriel Sacro",
   url: siteUrl,
   jobTitle: "Full-stack Developer & Designer",
-  description: "Full-stack developer & designer. Ship products that are fast, beautiful, and built with industry best practices.",
+  description: "Full-stack developer & designer for founders and small teams. I build web platforms with real functionality — bookings, payments, and dashboards — not just brochure sites.",
   sameAs: [
     "https://twitter.com/gabrielsacro",
     "https://www.linkedin.com/in/gabrielsacro",
@@ -73,9 +83,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('theme');var t=s||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased`}
       >
         <script
           type="application/ld+json"
@@ -84,7 +101,11 @@ export default function RootLayout({
         <GoogleAnalytics />
         <ScrollProgress />
         <ThemeProvider>
-          {children}
+          <ContactModalProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </ContactModalProvider>
         </ThemeProvider>
       </body>
     </html>

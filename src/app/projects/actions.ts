@@ -15,6 +15,10 @@ function mapRowToProject(row: {
   repo_url: string | null;
   featured: boolean;
   sort_order: number;
+  role?: string | null;
+  challenge?: string | null;
+  approach?: string | null;
+  outcome?: string | null;
 }): Project {
   return {
     id: row.id,
@@ -28,6 +32,10 @@ function mapRowToProject(row: {
     repoUrl: row.repo_url ?? undefined,
     featured: row.featured,
     sortOrder: row.sort_order,
+    role: row.role ?? undefined,
+    challenge: row.challenge ?? undefined,
+    approach: row.approach ?? undefined,
+    outcome: row.outcome ?? undefined,
   };
 }
 

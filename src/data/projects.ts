@@ -11,9 +11,34 @@ export type Project = {
   repoUrl?: string;
   featured: boolean;
   sortOrder: number;
+  role?: string;
+  challenge?: string;
+  approach?: string;
+  outcome?: string;
 };
 
 export const FALLBACK_PROJECTS: Project[] = [
+  {
+    id: "edukitor",
+    slug: "edukitor",
+    title: "Edukitor",
+    description: "Cloud-based school management platform for schools across Mindanao — RFID/QR attendance, DepEd-standard grading, a parent portal, and role-based dashboards for teachers, principals, parents, and students.",
+    longDescription: "Edukitor is a cloud-based school management system built for Philippine schools. RFID and QR tap-based check-in tracks attendance automatically and works offline with automatic sync. Teachers input marks and the system auto-calculates report cards to DepEd standards. Schools post real-time announcements school-wide or to specific classes, parents get live access to attendance and grades from any device, and teachers, principals, parents, and students each get their own role-based dashboard with row-level security.",
+    imageUrl: "https://s0.wp.com/mshots/v1/https%3A%2F%2Fedukitor.com%2F?w=640",
+    screenshots: [
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fedukitor.com%2F?w=800",
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fedukitor.com%2Flogin?w=800",
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fedukitor.com%2Fjoin?w=800",
+    ],
+    tags: ["EdTech", "School Management", "SaaS", "RFID", "Next generation website"],
+    linkUrl: "https://edukitor.com/",
+    featured: true,
+    sortOrder: 0,
+    role: "Full-stack development",
+    challenge: "Schools across Mindanao were tracking attendance and grades on paper and spreadsheets, with no shared system connecting teachers, principals, and parents. Attendance took manual tallying, report cards were calculated by hand against DepEd standards, and parents had no way to check in on their child during the school day.",
+    approach: "Built a cloud-based school management platform: RFID and QR tap-based check-in that works offline and syncs automatically, a grading system that auto-calculates report cards to DepEd standards, real-time school-wide and class-specific announcements, a parent portal for live attendance and grades, and role-based dashboards with row-level security for teachers, principals, parents, and students.",
+    outcome: "The platform now tracks over 1 million records at 99.9% uptime. One school alone runs 2,000+ students through 1,200+ RFID check-ins a day, each completing in 1-3 seconds, and schools report saving 10+ hours of manual work per week.",
+  },
   {
     id: "isla-capital",
     slug: "isla-capital",
@@ -30,7 +55,11 @@ export const FALLBACK_PROJECTS: Project[] = [
     tags: ["Finance", "Prop Trading", "Risk", "Next generation website"],
     linkUrl: "https://islacapital.com.ph/",
     featured: true,
-    sortOrder: 0,
+    sortOrder: 1,
+    role: "Full-stack design & development",
+    challenge: "A proprietary trading firm needed a corporate site that could do double duty: project credibility to institutional partners while also attracting and screening trader talent — from one properly structured site instead of a one-off brochure page.",
+    approach: "Built a multi-section site covering the firm overview, a dedicated careers page for recruiting traders, an about page for company story and culture, and an approach page detailing trading methodology and risk management — each audience given a clear path through the content.",
+    outcome: "A single, cohesive site that serves as the front door for both business development and recruiting, without separate microsites or PDFs needed to explain the firm.",
   },
   {
     id: "scngmai",
@@ -38,15 +67,20 @@ export const FALLBACK_PROJECTS: Project[] = [
     title: "SCNGMAI - News & Community",
     description: "News and community website featuring organization updates, member highlights, elected officers, and activity benchmarking. A hub for staying connected.",
     longDescription: "Community news and information website for SCNGMAI. Features latest news articles, member spotlights, elected officers showcase, and monthly activity benchmarking. Built to keep the community informed, celebrate achievements, and maintain engagement with monthly updates and important announcements.",
-    imageUrl: "https://s0.wp.com/mshots/v1/https%3A%2F%2Fscngmai.gabrielsacro.com%2F?w=640",
+    imageUrl: "/screenshots/scngmai/main.png",
     screenshots: [
-      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fscngmai.gabrielsacro.com%2F?w=800",
-      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fscngmai.gabrielsacro.com%2Fnews?w=800",
+      "/screenshots/scngmai/main.png",
+      "/screenshots/scngmai/members.png",
+      "/screenshots/scngmai/contact.png",
     ],
     tags: ["News", "Community", "Website", "Next generation website"],
     linkUrl: "https://scngmai.gabrielsacro.com/",
     featured: true,
-    sortOrder: 1,
+    sortOrder: 2,
+    role: "Full-stack development",
+    challenge: "A community organization needed a way to publish news, spotlight members and elected officers, and track monthly activity — previously scattered across social media posts with no central record.",
+    approach: "Built a news and community hub with an admin panel for publishing updates, member and officer spotlight pages, and monthly activity benchmarking, so non-technical staff can keep the site current without a developer in the loop.",
+    outcome: "The organization now has one authoritative place members check for news and recognition, backed by an admin panel the team runs themselves.",
   },
   {
     id: "portfolio",
@@ -64,7 +98,11 @@ export const FALLBACK_PROJECTS: Project[] = [
     tags: ["Portfolio", "Next generation website"],
     linkUrl: "https://gabriel-sacro-portfolio-git-vercel-rea-7a3129-kuyagabs-projects.vercel.app/",
     featured: true,
-    sortOrder: 2,
+    sortOrder: 3,
+    role: "Full-stack design & development",
+    challenge: "Independent professionals often end up with either a static, dated one-pager or an overbuilt site that's a pain to update — neither makes it easy for a prospective client to actually get in touch.",
+    approach: "Designed a streamlined portfolio pattern: a clean home that makes the first impression count, a dedicated projects page, an about section built for trust, and a contact flow that removes friction for the visitor.",
+    outcome: "A reusable, professional portfolio pattern that's fast to stand up for a client and easy for them to keep updated afterward.",
   },
   {
     id: "kuyagab-siargao",
@@ -87,7 +125,11 @@ export const FALLBACK_PROJECTS: Project[] = [
     tags: ["Travel", "Tours", "Siargao", "Next generation website"],
     linkUrl: "https://kuyagabsiargao.vercel.app/",
     featured: true,
-    sortOrder: 3,
+    sortOrder: 4,
+    role: "Full-stack development",
+    challenge: "A local tour operator on Siargao Island was relying on chat messages and word-of-mouth to sell island hopping, surfing lessons, and drone photography — with no central place for travelers to see packages, weather, or past trips.",
+    approach: "Built a full tours site with a services catalog, multiple package pages, live weather so travelers can plan around conditions, a testimonials section for social proof, and a memories gallery from past trips.",
+    outcome: "Travelers can browse everything on offer, check real-time weather, and read reviews in one place before reaching out — instead of the operator explaining it all over chat.",
   },
   {
     id: "siargao-island",
@@ -106,7 +148,11 @@ export const FALLBACK_PROJECTS: Project[] = [
     tags: ["Travel", "Siargao", "Next generation website"],
     linkUrl: "https://siargaoisland.vercel.app/",
     featured: true,
-    sortOrder: 4,
+    sortOrder: 5,
+    role: "Full-stack development",
+    challenge: "Visitors and locals in destinations like Siargao had photos and local knowledge worth sharing, but no shared place to post them, credit the photographer, or tie a photo to a real location.",
+    approach: "Built a community hub where anyone can upload a photo with a description, uploader name, and location, alongside live weather and rate information — a lightweight, crowdsourced view of the best spots in the area.",
+    outcome: "A living, community-populated gallery instead of a static \"top spots\" page that goes stale the moment it's published.",
   },
   {
     id: "travelasiargao",
@@ -128,6 +174,10 @@ export const FALLBACK_PROJECTS: Project[] = [
     tags: ["Travel", "Siargao", "Ferry", "Booking", "Next generation website"],
     linkUrl: "https://travelasiargao.gabrielsacro.com/",
     featured: true,
-    sortOrder: 5,
+    sortOrder: 6,
+    role: "Full-stack development",
+    challenge: "Daily ferry routes between Siargao–Surigao and Dinagat–Surigao were booked manually — no online reservations, no digital payment, and no way for staff to see manifests or run reports without paper records.",
+    approach: "Built a complete booking platform: online reservations, GCash payment integration, QR-code e-tickets, senior and PWD discount handling, live schedules and weather, and an admin dashboard for managing manifests and generating reports.",
+    outcome: "Passengers book and pay online and board with a scannable e-ticket, while staff manage schedules, manifests, and reporting from a single dashboard instead of paper logs.",
   },
 ];

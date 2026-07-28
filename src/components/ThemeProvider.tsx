@@ -11,23 +11,30 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
+// Matches the blocking inline script in the root layout, which sets
+// data-theme on <html> before hydration to avoid a flash. The state here
+// must start identical on server and client (fixed "dark") so hydration
+// doesn't mismatch; the real stored/system preference is only read once
+// mounted, matching what the blocking script already applied to the DOM.
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
     const stored = localStorage.getItem("theme") as Theme | null;
-    const initial = stored || "light";
-    setTheme(initial);
-    document.documentElement.setAttribute("data-theme", initial);
-    setMounted(true);
+    const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const detected = stored ?? (prefersLight ? "light" : "dark");
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of a browser-only preference unavailable during SSR
+    setTheme(detected);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prev) => {
       const next = prev === "light" ? "dark" : "light";
       localStorage.setItem("theme", next);
-      document.documentElement.setAttribute("data-theme", next);
       return next;
     });
   };

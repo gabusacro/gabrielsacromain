@@ -24,9 +24,9 @@ export function Testimonials() {
   const { elementRef, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={elementRef} id="work" className="border-t border-[var(--border)] bg-[var(--card)] py-24 px-6">
+    <section ref={elementRef} id="proof" className="border-t border-[var(--border)] bg-[var(--card)] py-24 px-6">
       <div className="mx-auto max-w-6xl">
-        <h2 className={`text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl ${isVisible ? "animate-fade-in-right" : "opacity-0"}`}>
+        <h2 className={`font-display text-3xl font-semibold tracking-tight text-[var(--foreground)] sm:text-4xl ${isVisible ? "animate-fade-in-right" : "opacity-0"}`}>
           What people say
         </h2>
         <p className={`mt-4 max-w-2xl text-lg text-[var(--muted)] ${isVisible ? "animate-fade-in-right" : "opacity-0"}`} style={{ animationDelay: "0.1s" }}>
@@ -39,7 +39,7 @@ export function Testimonials() {
               className={`rounded-2xl border border-[var(--border)] bg-[var(--background)] p-8 hover:border-[var(--accent)]/30 hover:shadow-lg ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
               style={{ animationDelay: isVisible ? `${0.2 + idx * 0.1}s` : "0s" }}
             >
-              <p className="text-[var(--foreground)] text-justify">&ldquo;{t.quote}&rdquo;</p>
+              <p className="text-[var(--foreground)]">&ldquo;{t.quote}&rdquo;</p>
               <footer className="mt-6">
                 <cite className="not-italic">
                   <span className="block font-semibold text-[var(--foreground)]">

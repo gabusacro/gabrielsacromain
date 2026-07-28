@@ -35,17 +35,18 @@ export function Hero() {
           transform: `translateY(${scrollY * 0.5}px)`,
         }}
       />
+      <div className="grain-overlay z-0" />
       <div className="relative z-10 mx-auto max-w-3xl text-center">
-        <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[var(--accent)] animate-fade-in-down" style={{ animationDelay: "0s" }}>
-          Next generation website
+        <p className="mb-4 font-mono text-sm font-medium uppercase tracking-widest text-[var(--accent)] animate-fade-in-down" style={{ animationDelay: "0s" }}>
+          Full-stack developer &amp; designer
         </p>
-        <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-7xl leading-tight animate-fade-in-down relative" style={{ animationDelay: "0.1s" }}>
-          Built to make you{" "}
+        <h1 className="font-display text-4xl font-semibold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-7xl leading-[1.1] animate-fade-in-down relative" style={{ animationDelay: "0.1s" }}>
+          I build the web platform{" "}
           <span className="relative inline-block">
-            <span className="text-[var(--accent)] relative">
-              extraordinarily
+            <span className="text-[var(--accent)] italic relative">
+              your business runs on
               <span
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[var(--accent)] via-[var(--accent-secondary)] to-[var(--accent)] rounded-full"
+                className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-[var(--accent)] via-[var(--accent-secondary)] to-[var(--accent)] rounded-full"
                 style={{
                   animation: "slide-in-from-left 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
                   animationDelay: "0.4s",
@@ -56,14 +57,15 @@ export function Hero() {
               />
             </span>
           </span>
-          {" "}productive.
+          .
         </h1>
         <p className="mt-8 text-lg text-[var(--muted)] sm:text-xl leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          Full-stack developer & designer. I ship products that are fast, beautiful, and built with industry best practices.
+          Not just a brochure site — bookings, payments, dashboards, and the backend behind them.
+          I design and ship production-ready products for founders and small teams who need their site to actually do something.
         </p>
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
           <Link
-            href="#projects"
+            href="#work"
             className="group relative inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] px-8 text-base font-semibold text-[var(--background)] shadow-lg hover:shadow-2xl hover:scale-110 active:scale-95 overflow-hidden"
           >
             <span className="relative z-10 flex items-center">
@@ -73,7 +75,7 @@ export function Hero() {
             <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
           </Link>
           <ContactTrigger className="group relative inline-flex h-12 items-center justify-center rounded-full border-2 border-[var(--accent)] px-8 text-base font-semibold text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--background)] hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-300">
-            Get in touch
+            Book a project call
           </ContactTrigger>
         </div>
       </div>

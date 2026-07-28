@@ -6,8 +6,7 @@ export type FeatureSlide = {
 export type FeatureWithSlides = {
   title: string;
   description: string;
-  icon?: string;
-  iconKey?: "design" | "ship";
+  iconKey?: "fullstack" | "design" | "ship";
   slides: FeatureSlide[];
 };
 
@@ -15,7 +14,7 @@ export const FEATURES_WITH_SLIDES: FeatureWithSlides[] = [
   {
     title: "Full-stack development",
     description: "From API design to pixel-perfect UIs. Next.js, React, Node, and modern tooling.",
-    icon: "⌘",
+    iconKey: "fullstack",
     slides: [
       {
         title: "What it is",
